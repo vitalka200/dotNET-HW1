@@ -58,7 +58,8 @@ namespace HW1_VitaliKarabitski
             return (IEnumerable<IGrouping<TKey, T>>)list.GroupBy(groupClause);
         }
 
-        public static void PrintQ1<T>(IEnumerable<T> list) where T : IGrouping<bool, Course>
+        public static void PrintQ1<TKey,T>(IEnumerable<IGrouping<TKey,T>> list)
+            where T : Course
         {
             foreach (var g in list)
             {
