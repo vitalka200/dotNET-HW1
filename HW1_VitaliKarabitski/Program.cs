@@ -33,7 +33,7 @@ namespace HW1_VitaliKarabitski
             switch (answer)
             {
                 case "P" : case "p" :
-                    PrintQ1(Q1(list, c => c.Stud.List.DefaultIfEmpty(0).Average() >= 60));
+                    PrintQ1(Q1(list, c => c.Stud.List.Average(g => (double?)g) >= 60));
                     break;
                 case "#":
                     PrintQ1(Q1(list, c => c.Name.Equals("C#")).Reverse());
@@ -79,7 +79,7 @@ namespace HW1_VitaliKarabitski
         {
             var x =
                 from c in list
-                where c.Stud.List.Where(i => i >= 60).DefaultIfEmpty(0).Average() > 90
+                where c.Stud.List.Where(i => i >= 60).Average(g => (double?)g) > 90
                 select new { Name = c.Stud.Name, List = string.Join(" ", c.Stud.List)};
             return (IEnumerable<dynamic>)x;
         }
